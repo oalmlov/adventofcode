@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from operator import xor
 
 input = """9-10 m: mmmmnxmmmwm
         6-8 w: wpwwhxnv
@@ -1016,3 +1017,17 @@ for line in input.splitlines():
     if char_count in allowed_range:
         counter += 1
 print(counter)
+
+# Part 2
+counter2 = 0
+for line in input.splitlines():
+    raw_positions, raw_char, pattern = line.split()
+    char = raw_char[:1]
+    position1 = int(raw_positions.split("-")[0])
+    position2 = int(raw_positions.split("-")[1])
+
+    print(position1, position2, char, pattern)
+    if xor(pattern[position1 - 1] == char, pattern[position2 - 1] == char):
+        print(1)
+        counter2 += 1
+print(counter2)
