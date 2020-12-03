@@ -348,8 +348,8 @@ def path_finder(arrays, x_step, y_step, start=(0, 0)):
         if x >= len(arrays[y]):
             x = x - len(arrays[y])
         path.append((x, y))
-        x = x + x_step
-        y = y + y_step
+        x += x_step
+        y += y_step
     return path
 
 paths = [
