@@ -1026,8 +1026,6 @@ for line in input.splitlines():
     position1 = int(raw_positions.split("-")[0])
     position2 = int(raw_positions.split("-")[1])
 
-    print(position1, position2, char, pattern)
     if xor(pattern[position1 - 1] == char, pattern[position2 - 1] == char):
-        print(1)
         counter2 += 1
 print(counter2)
