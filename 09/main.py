@@ -19,3 +19,23 @@ def find_invalid_number(data, step=25):
 xmas_data = [int(i) for i in input]
 invalid_number = (find_invalid_number(xmas_data, step=25))
 print(invalid_number)
+
+
+# Part 2
+def find_contiguous_match(data, invalid_number):
+    n_current = 0
+    for counter, n in enumerate(data):
+        if n_current > invalid_number:
+            break
+        elif n_current == invalid_number:
+            return data[:counter]
+        else:
+            n_current += n
+    return False
+
+
+result = False
+while not result:
+    result = find_contiguous_match(xmas_data, invalid_number)
+    xmas_data = xmas_data[1:]
+print(min(result) + max(result))
